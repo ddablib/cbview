@@ -1,329 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
- * This Source Code Form is subject to the terms of the Mozilla Public License,
- * v. 2.0. If a copy of the MPL was not distributed with this file, You can
- * obtain one at http://mozilla.org/MPL/2.0/
- *
- * Copyright (C) 2008-2014, Peter Johnson (www.delphidabbler.com).
- *
- * Read-me file for Clipboard Viewer Component
--->
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+# Clipboard Viewer Component
 
-<head>
+## Description
 
-  <title>
-    DelphiDabbler.com Clipboard Viewer Component ReadMe
-  </title>
+_TPJCBView_ is a non-visual Delphi component that notifies the user whenever the content of the clipboard changes.
 
-  <style type="text/css">
-    body {
-      margin: 1em;
-      padding: 0;
-      font-family: Verdana, Arial, sans-serif;
-      font-size: 9pt;
-      line-height: 150%;
-    }
-    h1 {
-      margin: 0 0 1em 0;
-      padding: 0.5em;
-      border: 1px silver solid;
-      background-color: #eee;
-      font-size: 13pt;
-      font-weight: bold;
-      text-align: center;
-    }
-    h1 .subtitle {
-      font-style: italic;
-      color: #336;
-    }
-    h2 {
-      margin: 1em 0 0 0;
-      padding: 0;
-      padding-bottom: 6px;
-      border-bottom: 1px silver solid;
-      font-size: 11pt;
-      font-weight: bold;
-    }
-    h3 {
-      margin: 0.5em 0 0 0;
-      padding: 0;
-      font-size: 9pt;
-      font-weight: bold;
-    }
-    p {
-      margin: 0.5em 0 0 0;
-      padding: 0;
-    }
-    ul, ol {
-      margin: 0.5em 0 0 3em;
-      padding: 0;
-    }
-    ul {
-      list-style-type: square;
-    }
-    ul.spaced li,
-    ol.spaced li {
-      margin-top: 0.5em;
-    }
-    ul.spaced li,
-    ol.spaced li {
-      margin-top: 0.5em;
-    }
-    ul.unspaced li,
-    ol.unspaced li {
-      margin-top: 0;
-    }
-    ul.unspaced li.first,
-    ol.unspaced li.first {
-      margin-top: 0.5em;
-    }
-    code {
-      font-family: "Courier New", Courier, monospace;
-    }
-    a:link {
-      color: #336;
-      text-decoration: underline;
-    }
-    a:visited {
-      color: #669;
-      text-decoration: underline;
-    }
-    a:active {
-      color: #336;
-      text-decoration: underline;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .pullout {
-      border-left: 8px silver solid;
-      background-color: #eee;
-      margin: 0.5em 0 0 0;
-      padding: 0.25em 0.5em;
-      font-style: italic;
-    }
-    .indent {
-      margin-left: 3em;
-    }
-    .highlight {
-      color: #336;
-      font-style: italic;
-      font-weight: bold;
-    }
-    .endnotes {
-      margin: 1.5em 0 0 0;
-      padding: 1em 0 0 0;
-      border-top: 1px silver solid;
-    }
-    .comments {
-      font-style: italic;
-    }
-    .copyright,
-    .copyright a:link,
-    .copyright a:visited,
-    .copyright a:active {
-      margin: 1em 0 0 0;
-      color: gray;
-      font-size: 8pt;
-      text-align: right;
-    }
-  </style>
+Notification is by means of an event. By handling the event your application can respond to changes on the clipboard. The component can be used as the heart of a program that displays "live" information about the clipboard. Alternatively it can be used to enable and disable other components whose state depends on the available clipboard formats.
 
-</head>
+_TPJCBView_ provides an _Enabled_ property that is used to enable and disable the component and hence it's events. It also has a _TriggerOnCreation_ property that triggers an event when the control is created.
 
+## Compatibility
 
-<body>
+The component has been tested with the 32-bit Windows compiler of Delphi 7 and Delphi 2006 to XE4 and the the 64-bit Windows compiler of Delphi XE2 to XE4.
 
+The unit has dependencies on the VCL and on Windows so cannot be used with the FireMonkey framework or with non-Windows targets.
 
-<h1>
-  <div>Clipboard Viewer Component</div>
-  <div class="subtitle">ReadMe</div>
-</h1>
+## Installation
 
-<h2>
-  Description
-</h2>
+The _Clipboard Viewer Component_ and its associated files are supplied in a zip file. Before installing you need to extract all the files from the zip file, preserving the directory structure. The following files will be extracted:
 
-<p>
-  <var>TPJCBView</var> is a non-visual Delphi component that notifies the user
-  whenever the content of the clipboard changes.
-</p>
+* **`PJCBView.pas`** – component source code.
+* **`PJCBView.dcr`** – component palette glyph.
+* `README.md` – this file.
+* `CHANGELOG.md` – project change log.
+* `MPL-2.txt` – the Mozilla Public License v2.0.
+* `Documentation.url` – short-cut to the component's online documentation.
 
-<p>
-  Notification is by means of an event. By handling the event your application
-  can respond to changes on the clipboard. The component can be used as the
-  heart of a program that displays &quot;live&quot; information about the
-  clipboard. Alternatively it can be used to enable and disable other components
-  whose state depends on the available clipboard formats.
-</p>
+In addition to the above files you will find the source code of the demo project the `Demo` sub-directory.
 
-<p>
-  <var>TPJCBView</var> provides an <var>Enabled</var> property that is used to
-  enable and disable the component and hence it's events. It also has a
-  <var>TriggerOnCreation</var> property that triggers an event when the control
-  is created.
-</p>
+You can now install the components into the Delphi IDE. To do this, the files `PJCBView.pas` and `PJCBView.dcr` should be added to a design time package. If you need help doing this [see here](https://delphidabbler.com/url/install-comp).
 
-<h2>
-  Compatibility
-</h2>
+## Documentation
 
-<p>
-  The component has been tested with the 32-bit Windows compiler of Delphi 7 and
-  Delphi 2006 to XE4 and the the 64-bit Windows compiler of Delphi XE2 to XE4.
-</p>
+The component has comprehensive [online documentation](https://delphidabbler.com/url/cbview-docs).
 
-<p>
-  The unit has dependencies on the VCL and on Windows so cannot be used with the
-  FireMonkey framework or with non-Windows targets.
-</p>
+## Demo Program
 
-<h2>
-  Installation
-</h2>
+The source code of a program that demonstrates the component is included in the download.
 
-<p>
-  The Clipboard Viewer Component and its associated files are supplied in a zip
-  file. Before installing you need to extract all the files from the zip file,
-  preserving the directory structure. The following files will be extracted:
-</p>
+This demo requires Delphi 7 as a minimum.
 
-<ul>
-  <li class="first">
-    <strong><code>PJCBView.pas</code></strong> &ndash; component source code.
-  </li>
-  <li>
-    <strong><code>PJCBView.dcr</code></strong> &ndash; component palette glyph.
-  </li>
-  <li>
-    <code>ReadMe.htm</code> &ndash; this file.
-  </li>
-  <li>
-    <code>ChangeLog.txt</code> &ndash; project change log.
-  </li>
-  <li>
-    <code>MPL-2.txt</code> &ndash; the Mozilla Public License v2.0.
-  </li>
-  <li>
-    <code>Documentation.url</code> &ndash; short-cut to the component's online
-    documentation.
-  </li>
-</ul>
+For more information about the demo see the file [`DemoReadMe.txt`](https://raw.githubusercontent.com/ddablib/cbview/main/Demo/DemoReadMe.txt) in the `Demo` directory.
 
-<p>
-  In addition to the above files you will find the source code of the demo
-  project the <code>Demo</code> sub-directory.
-</p>
+## Update History
 
-<p>
-  You can now install the components into the Delphi IDE. To do this, the files
-  <code>PJCBView.pas</code> and <code>PJCBView.dcr</code> should be added to a
-  design time package. If you need help doing this <a
-    href="http://www.delphidabbler.com/url/install-comp"
-  >see here</a>.
-</p>
+A complete change log is provided in [`CHANGELOG.md`](https://github.com/ddablib/cbview/blob/main/CHANGELOG.md) that is included in the download.
 
-<h2>
-  Documentation
-</h2>
+## License
 
-<p>
-  The component has comprehensive <a
-    href="http://delphidabbler.com/url/cbview-docs"
-  >online documentation</a>.
-</p>
+The _Clipboard Viewer Component_ is released under the terms of the [Mozilla Public License v2.0](https://www.mozilla.org/MPL/2.0/).
 
-<h2>
-  Demo Program
-</h2>
+All relevant trademarks are acknowledged.
 
-<p>
-  The source code of a program that demonstrates the component is included in
-  the download.
-</p>
+## Bugs and Feature Requests
 
-<p>
-  This demo requires Delphi 7 as a minimum.
-</p>
+Bugs can be reported or new features requested via the project's [Issue Tracker](https://github.com/ddablib/cbview/issues). A GitHub account is required.
 
-<p>
-  For more information about the demo see the file <code>DemoReadMe.txt</code>
-  in the <code>Demo</code> directory.
-</p>
+Please check if an issue has already been created for a similar report or request. If so then please add a comment containing as much information as you can to the existing issue, or if you've nothing to add, just add a :+1: (`:+1:`) comment. If there is no suitable existing issue then please add a new issue and give as much information as possible.
 
-<h2>
-  Update History
-</h2>
+## About the Author
 
-<p>
-  A complete change log is provided in a text file that is included in the
-  download.
-</p>
+I'm Peter Johnson – a hobbyist programmer living in Ceredigion in West Wales, UK, writing mainly in Delphi. My programs and other library code are available from: [https://delphidabbler.com/](https://delphidabbler.com/).
 
-<h2>
-  License
-</h2>
-
-<p>
-  The <em>Clipboard Viewer Component</em> is released under the terms of the <a
-    href="http://www.mozilla.org/MPL/2.0/"
-  >Mozilla Public License v2.0</a>.
-</p>
-
-<p>
-  All relevant trademarks are acknowledged.
-</p>
-
-<h2>
-  Bugs and Feature Requests
-</h2>
-
-<p>
-  Bugs can be reported or new features requested via the <a
-    href="http://www.delphidabbler.com/url/ddlib-issues"
-  >Issue Tracker</a>.
-</p>
-
-<p>
-  If no similar report or request has been recorded already, use the <em>New
-  Issue</em> link to add a new issue. Please select the most appropriate
-  template from the <em>Templates</em> drop down list.
-</p>
-
-<h2>
-  About the Author
-</h2>
-
-<p>
-  I'm Peter Johnson &ndash; a hobbyist programmer living in Ceredigion in West
-  Wales, UK, writing write mainly in Delphi. My programs and code are available
-  from <a
-    href="http://www.delphidabbler.com/"
-  >http://www.delphidabbler.com/</a>.
-</p>
-
-<p>
-  I can be <a
-    href="http://www.delphidabbler.com/contact"
-  >contacted via the website</a>.
-</p>
-
-
-<div class="endnotes">
-  <div class="comments">
-    Please <a
-      href="http://www.delphidabbler.com/contact"
-    >let me know</a> if you have any comments about the component, but please
-    use the Issue Tracker noted above to report bugs and request new features.
-  </div>
-  <div class="copyright">
-    This document is copyright &copy; 2008-2014, P D Johnson, <a
-      href="http://www.delphidabbler.com/"
-    >www.delphidabbler.com</a>.
-  </div>
-</div>
-</body>
-
-</html>
+This document is copyright © 2008-2022, [P D Johnson](https://gravatar.com/delphidabbler).
