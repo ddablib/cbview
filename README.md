@@ -8,6 +8,8 @@ Notification is by means of an event. By handling the event your application can
 
 _TPJCBView_ provides an _Enabled_ property that is used to enable and disable the component and hence it's events. It also has a _TriggerOnCreation_ property that triggers an event when the control is created.
 
+For more information see the component's has [online documentation](https://delphidabbler.com/url/cbview-docs).
+
 ## Compatibility
 
 The component has been tested with the 32-bit Windows compiler of Delphi 7 and Delphi 2006 to XE4 and the the 64-bit Windows compiler of Delphi XE2 to XE4.
@@ -25,13 +27,9 @@ The _Clipboard Viewer Component_ and its associated files are supplied in a zip 
 * `MPL-2.txt` – the Mozilla Public License v2.0.
 * `Documentation.url` – short-cut to the component's online documentation.
 
-In addition to the above files you will find the source code of the demo project the `Demo` sub-directory.
+In addition to the above files you will find the source code of a [demo project](#demo-program) the `Demo` sub-directory.
 
 You can now install the components into the Delphi IDE. To do this, the files `PJCBView.pas` and `PJCBView.dcr` should be added to a design time package. If you need help doing this [see here](https://delphidabbler.com/url/install-comp).
-
-## Documentation
-
-The component has comprehensive [online documentation](https://delphidabbler.com/url/cbview-docs).
 
 ## Demo Program
 
