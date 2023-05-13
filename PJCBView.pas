@@ -19,7 +19,7 @@ unit PJCBView;
 
 
 {$DEFINE AllocateHWndIsInFormsUnit}
-{$UNDEF RequiresRTLNameSpaces}
+{$UNDEF RequiresUnitScopeNames}
 {$UNDEF SupportsRaiseLastOSError}
 {$UNDEF SupportsStrict}
 {$IFDEF CONDITIONALEXPRESSIONS}
@@ -27,7 +27,7 @@ unit PJCBView;
     {$LEGACYIFEND ON}  // NOTE: this must come before all $IFEND directives
   {$IFEND}
   {$IF CompilerVersion >= 23.0} // Delphi XE2 and later
-    {$DEFINE RequiresRTLNameSpaces}
+    {$DEFINE RequiresUnitScopeNames}
   {$IFEND}
   {$IF CompilerVersion >= 18.0} // Delphi 2006 and later
     {$DEFINE SupportsStrict}
@@ -43,7 +43,7 @@ interface
 
 
 uses
-  {$IFNDEF RequiresRTLNameSpaces}
+  {$IFNDEF RequiresUnitScopeNames}
   Windows,
   Messages,
   Classes;
@@ -141,7 +141,7 @@ implementation
 
 
 uses
-  {$IFNDEF RequiresRTLNameSpaces}
+  {$IFNDEF RequiresUnitScopeNames}
   SysUtils, Forms;
   {$ELSE}
   System.SysUtils, Vcl.Forms;
@@ -215,7 +215,7 @@ begin
   {$IFDEF AllocateHWndIsInFormsUnit}
   fHWnd := Forms.AllocateHWnd(WndMethod);
   {$ELSE}
-  {$IFDEF RequiresRTLNameSpaces}
+  {$IFDEF RequiresUnitScopeNames}
   fHWnd := System.Classes.AllocateHWnd(WndMethod);
   {$ELSE}
   fHWnd := Classes.AllocateHWnd(WndMethod);
@@ -253,7 +253,7 @@ begin
   {$IFDEF AllocateHWndIsInFormsUnit}
   Forms.DeallocateHWnd(fHWnd);
   {$ELSE}
-  {$IFDEF RequiresRTLNameSpaces}
+  {$IFDEF RequiresUnitScopeNames}
   System.Classes.DeallocateHWnd(fHWnd);
   {$ELSE}
   Classes.DeallocateHWnd(fHWnd);
