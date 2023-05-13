@@ -152,7 +152,7 @@ resourcestring
   // Fatal error message displayed if no suitable clipboard monitoring API can
   // be found. *** This should never happen ***
   sAPINotSupported = '*** UNEXPECTED ERROR in Clipboard Viewer Component.'#10#10
-    + 'No clipboard viewer API is not supported by this operating system.'#10#10
+    + 'No clipboard viewer API is supported by this operating system.'#10#10
     + 'Please report this error at:'#10
     + '  https://github.com/ddablib/cbview/issues'#10
     + 'stating your operating system version.';
