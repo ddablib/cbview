@@ -3,7 +3,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/
  *
- * Copyright (C) 1999-2014, Peter Johnson (www.delphidabbler.com).
+ * Copyright (C) 1999-2023, Peter Johnson (www.delphidabbler.com).
  *
  * Clipboard Viewer Component source code. Implements a component that monitors
  * the Windows clipboard and triggers an event whenever the content of the
