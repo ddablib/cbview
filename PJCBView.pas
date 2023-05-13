@@ -3,7 +3,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/
  *
- * Copyright (C) 1999-2014, Peter Johnson (www.delphidabbler.com).
+ * Copyright (C) 1999-2023, Peter Johnson (www.delphidabbler.com).
  *
  * Clipboard Viewer Component source code. Implements a component that monitors
  * the Windows clipboard and triggers an event whenever the content of the
@@ -19,7 +19,7 @@ unit PJCBView;
 
 
 {$DEFINE AllocateHWndIsInFormsUnit}
-{$UNDEF RequiresRTLNameSpaces}
+{$UNDEF RequiresUnitScopeNames}
 {$UNDEF SupportsRaiseLastOSError}
 {$UNDEF SupportsStrict}
 {$IFDEF CONDITIONALEXPRESSIONS}
@@ -27,7 +27,7 @@ unit PJCBView;
     {$LEGACYIFEND ON}  // NOTE: this must come before all $IFEND directives
   {$IFEND}
   {$IF CompilerVersion >= 23.0} // Delphi XE2 and later
-    {$DEFINE RequiresRTLNameSpaces}
+    {$DEFINE RequiresUnitScopeNames}
   {$IFEND}
   {$IF CompilerVersion >= 18.0} // Delphi 2006 and later
     {$DEFINE SupportsStrict}
@@ -43,7 +43,7 @@ interface
 
 
 uses
-  {$IFNDEF RequiresRTLNameSpaces}
+  {$IFNDEF RequiresUnitScopeNames}
   Windows,
   Messages,
   Classes;
@@ -141,7 +141,7 @@ implementation
 
 
 uses
-  {$IFNDEF RequiresRTLNameSpaces}
+  {$IFNDEF RequiresUnitScopeNames}
   SysUtils, Forms;
   {$ELSE}
   System.SysUtils, Vcl.Forms;
@@ -152,9 +152,9 @@ resourcestring
   // Fatal error message displayed if no suitable clipboard monitoring API can
   // be found. *** This should never happen ***
   sAPINotSupported = '*** UNEXPECTED ERROR in Clipboard Viewer Component.'#10#10
-    + 'No clipboard viewer API is not supported by this operating system.'#10#10
+    + 'No clipboard viewer API is supported by this operating system.'#10#10
     + 'Please report this error at:'#10
-    + '  https://code.google.com/p/ddab-lib/issues/list'#10
+    + '  https://github.com/ddablib/cbview/issues'#10
     + 'stating your operating system version.';
 
 const
@@ -215,7 +215,7 @@ begin
   {$IFDEF AllocateHWndIsInFormsUnit}
   fHWnd := Forms.AllocateHWnd(WndMethod);
   {$ELSE}
-  {$IFDEF RequiresRTLNameSpaces}
+  {$IFDEF RequiresUnitScopeNames}
   fHWnd := System.Classes.AllocateHWnd(WndMethod);
   {$ELSE}
   fHWnd := Classes.AllocateHWnd(WndMethod);
@@ -253,7 +253,7 @@ begin
   {$IFDEF AllocateHWndIsInFormsUnit}
   Forms.DeallocateHWnd(fHWnd);
   {$ELSE}
-  {$IFDEF RequiresRTLNameSpaces}
+  {$IFDEF RequiresUnitScopeNames}
   System.Classes.DeallocateHWnd(fHWnd);
   {$ELSE}
   Classes.DeallocateHWnd(fHWnd);
